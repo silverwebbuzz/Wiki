@@ -1,0 +1,83 @@
+// .grid{
+//     padding: 0px;
+
+//     .box-card{
+//         //box-shadow: 0px 0px 4px 0px #5d5e5e;
+//         box-shadow: 0px 0px 0px 0px;
+//         border-radius: 0px;
+//         margin: 0px;
+//         background:#fff;
+//       }
+  
+//     .product-pic{
+//         padding-bottom: 0px; 
+//         height: 100px; 
+//         width: 100px;
+//         border-radius: 50%;
+//         box-shadow: 0px 0px 4px 0px #CCC; 
+//         margin: 0 auto;
+//         margin-top: 10px;
+//     }
+  
+//         .title{
+//           display: block;
+//           font-size: 16px; 
+//           color: #000; 
+//           font-weight: bold; 
+//           text-align: center;
+//           padding: 10px;
+//         }
+  
+//         .cat-title{
+//           font-size: 14px; 
+//           color: grey;
+//           display: block;
+//           text-align: center;
+//           padding: 0px 0px 10px 0px;
+//       }
+//     }
+
+ion-content{
+  --background: #f1f1f1;
+
+  ion-slides{
+    top: 50%;
+    transform: translateY(-50%);
+
+    ion-slide{
+      padding-bottom: 20px;
+
+      ion-card{
+        background: #fff; 
+        margin: 10px;
+
+        img{
+          padding: 20px;
+          height: 250px;
+          width: 250px;
+          object-fit: cover;
+        }
+
+        .username{
+            display: block;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            padding: 15px;
+        }
+
+        .skill-name{
+            display: block;
+            text-align: center;
+            font-size: 18px;
+            padding-bottom: 25px;
+        }
+      }
+    }
+  }
+  ion-spinner{
+    margin: 0 auto;
+    display: block;
+    top: 40%;
+  }
+}

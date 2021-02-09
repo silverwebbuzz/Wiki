@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-button fill="clear" (click)="back()">
+            <ion-icon name="arrow-back" mode="ios" color="dark"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+    <ion-title>news</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ng-container *ngIf="isLoaded; else elseTemplate">
+        <ion-refresher slot="fixed" (ionRefresh)="refreshNews($event)">
+          <ion-refresher-content pulling-icon="arrow-dropdown" pulling-text="Pull to refresh" refreshing-spinner="circles"
+            refreshing-text="Refreshing...">
+          </ion-refresher-content>
+        </ion-refresher>
+        <ion-card *ngFor="let news of allNews" class="card_news" (click)="gotoNewDetails(news)" routerLink="/newsdetails">
+          <img [src]="getNewsImg(news)" class="img_news">
+          <ion-card-header class="card_header">
+            <ion-card-subtitle class="card_subtitle" role="heading" aria-level="3">By {{news.add_by_fname}}
+              {{news.add_by_lname}}, {{news.add_date | date}}</ion-card-subtitle>
+            <ion-card-title class="card_title" role="heading" aria-level="2">{{news.title | titlecase}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="card_content" [innerHTML]="news.sort_description"></ion-card-content>
+        </ion-card>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <ion-spinner name="crescent"></ion-spinner>
+      </ng-template>
+
+</ion-content>

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="back()">
+        <ion-icon name="arrow-back" mode="ios" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      About Us
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="main-page">
+
+    <div class="grey-background"></div>
+  
+    <div class="container">
+  
+    <ion-card class="box">
+
+        <ion-label color="dark" [innerHTML]="AboutPage.content" class="header-label">
+            
+        </ion-label>
+
+    </ion-card>
+
+    </div>
+
+</ion-content>

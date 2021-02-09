@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button fill="clear" (click)="back()">
+          <ion-icon name="arrow-back" mode="ios" color="dark"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title *ngIf="newsDetails">
+        {{newsDetails.title}}
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content *ngIf="newsDetails">
+
+    <ion-slides *ngIf="allImgs" pager="true" loop="true" [options]="sliderOptions" (click)="zoomSlider(allImgs)">
+      <ion-slide *ngFor="let img of allImgs">
+        <img [src]="ImgURL + img" class="slide_pic">
+      </ion-slide>
+    </ion-slides>
+
+    <div class="main_div">
+    <ion-label class="head_news">{{newsDetails.title}}</ion-label>
+
+    <!-- <div class="highlight_news" *ngIf="newsDetails.highlight">
+    <ion-label class="head_tag">HIGHLIGHTS</ion-label>
+    <li>According to Isro, Moon is a promising testbed to demonstrat technologies required for deep space missions.</li>
+    <li>The south pole is also supposed to have ancient rocks and craters that will cast light on the history of Moon and fossil records of the earlier solar system.</li>
+    </div> -->
+
+    <ion-label class="para1" [innerHTML]="newsDetails.description"></ion-label>
+    <ion-card class="card_see" *ngIf="RandomNews" (click)="gotoNewDetails(RandomNews)">
+      <ion-row>
+        <ion-col size="1">
+          <ion-card class="col1"></ion-card>
+        </ion-col>
+        <ion-col size="4">
+          <ion-label class="head_read">READ ALSO :</ion-label>
+          <img [src]="getNewsImg(RandomNews)" class="img_see"/>
+        </ion-col>
+        <ion-col size="7" class="desc_read">
+          <ion-label>{{RandomNews.title}}</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    </div>
+
+</ion-content>

@@ -1,0 +1,43 @@
+<ion-app>
+  <ion-menu class="menu-container">
+    <ion-menu-toggle class="menu-toggle">
+      <div class="grey-background"></div> 
+      <ion-card class="card-profile">
+        <ion-item lines="none" class="profile-item">
+        <img src="../assets/img/Avatar.png" class="profile-pic"/>
+        <ion-button *ngIf="!isLoggedIn" fill="clear" size="large" color="dark" routerLink="/login" style="font-weight: bold;">
+          Sign In
+        </ion-button>
+        <ion-button *ngIf="isLoggedIn" fill="clear" size="large" color="dark" style="font-weight: bold;" routerLink="/userprofile">
+          {{username | uppercase}}
+        </ion-button>
+        </ion-item>
+      
+      </ion-card>
+      <ion-item lines="none" class="menu-item" routerLink="/news">
+        <ion-icon name="paper" mode="md" class="menu-item-icon"></ion-icon>
+        News
+      </ion-item>
+      <ion-item lines="none" class="menu-item" routerLink="/team">
+          <ion-icon name="contacts" mode="ios" class="menu-item-icon"></ion-icon>
+        Team
+      </ion-item>
+      <ion-item lines="none" class="menu-item" routerLink="/change-password">
+        <ion-icon name="unlock" mode="md" class="menu-item-icon"></ion-icon>
+      Change Password
+      </ion-item>
+      <ion-item lines="none" class="menu-item" routerLink="/about">
+          <ion-icon name="information-circle-outline" mode="ios" class="menu-item-icon"></ion-icon>
+        About Us
+      </ion-item>
+      <ion-item lines="none" class="menu-item" routerLink="/terms">
+          <ion-icon name="list-box" mode="md" class="menu-item-icon"></ion-icon>
+        Terms and Condition
+      </ion-item>
+      <ion-button *ngIf="isLoggedIn" (click)="logout()" fill="clear" expand="full" color="dark" class="btn-logout">
+        LOG OUT
+      </ion-button>
+    </ion-menu-toggle>
+  </ion-menu>
+  <ion-router-outlet main></ion-router-outlet>
+</ion-app>

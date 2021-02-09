@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button fill="clear" (click)="back()">
+          <ion-icon name="arrow-back" mode="ios" color="dark"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>
+        Jobs
+      </ion-title>
+      <ion-buttons slot="end">
+          <ion-button fill="clear">
+            <ion-icon name="search" mode="md" color="dark"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content class="page_jobs">
+
+  <ion-item lines="none" class="item_jobs">
+    <ion-row class="row_jobs">
+      <ion-col size="3" class="col_img">
+        <img src="../../assets/img/sc2.jpg" class="img_logo"/>
+      </ion-col>
+      <ion-col size="9" class="col_lbl">
+        <ion-label class="lbl_title">Jobs Title</ion-label>
+        <ion-label class="lbl_company">Company Name</ion-label>
+        <ion-label class="lbl_address">Address</ion-label>
+        <ion-label class="lbl_time">Posted Time</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+
+</ion-content>

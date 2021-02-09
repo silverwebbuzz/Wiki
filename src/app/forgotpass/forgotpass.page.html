@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="back()">
+        <ion-icon name="arrow-back" mode="ios" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Forgot Password
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="main-page">
+
+  <div class="grey-background"></div>
+
+  <div class="container forgot-pass">
+
+  <ion-card class="box">
+  
+  <ion-label color="dark" class="header-label">
+    Forgot your password ?
+  </ion-label>
+
+  <form [formGroup]="forgot_form" autocomplete="off">
+  <ion-item lines="none" class="input-container">
+    <ion-label position="floating" class="input-label">
+      Email address
+    </ion-label>
+    <ion-input type="email" formControlName="email" class="input-box"></ion-input>
+  </ion-item>
+
+  <ion-item no-padding lines="none" class="validator-error"
+    *ngIf="forgot_form.controls.email.hasError('required') && forgot_form.controls.email.touched">
+    <p class="content">Email Address is required!</p>
+  </ion-item>
+  
+  <ion-item no-padding lines="none" class="validator-error"
+    *ngIf="forgot_form.controls.email.hasError('pattern') && forgot_form.controls.email.touched">
+    <p class="content">Please Enter a Valid Email Address!</p>
+  </ion-item>
+
+  <ion-item no-padding lines="none" class="validator-error"
+  *ngIf="forgot_form.controls.email.hasError('incorrect') && forgot_form.controls.email.touched">
+  <p class="content">Email does not exists!! Please enter registered email.</p>
+</ion-item>
+
+  <ion-button expand="full" size="large" color="dark" class="btn-login" (click)="forgotPassword()">RESET MY PASSWORD</ion-button>
+  </form>
+
+  </ion-card>
+
+  </div>
+
+</ion-content>

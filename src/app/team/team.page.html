@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="back()">
+        <ion-icon name="arrow-back" mode="ios" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Team
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ng-container *ngIf="isLoaded; else elseTemplate">
+  <ion-slides pager="true" [options]="sliderOptions">
+    <ion-slide *ngFor="let user of Team">
+        <ion-card>
+            <img *ngIf="user.user_image" [src]="profileURL + user.user_image"/>
+            <img *ngIf="!user.user_image" src="../../assets/img/no-img.png"/>
+            <ion-label class="username">{{user.team_name}}</ion-label>
+            <ion-label class="skill-name">{{user.skill_name}}</ion-label>
+          </ion-card>
+    </ion-slide>  
+  </ion-slides>
+</ng-container>
+<ng-template #elseTemplate>
+  <ion-spinner name="crescent"></ion-spinner>
+</ng-template>
+</ion-content>

@@ -1,0 +1,30 @@
+ion-content{
+    --padding-top: 8px;
+    --padding-bottom: 8px;
+    --padding-start: 8px;
+    --padding-end: 8px;
+}
+
+.head{
+    font-weight: bold;
+}
+
+.format-div{
+    border: 1px dotted #383a3e; 
+    margin: 16px 8px 0px 8px;
+    //background: #f1f1f1;
+
+    .format-img{
+        height: 100px; 
+        width: 100px; 
+        display: block; 
+        padding: 10px; 
+        margin: auto;
+    }
+
+    .format-label{
+        display: block; 
+        text-align: center; 
+        padding: 8px;
+    }
+  }

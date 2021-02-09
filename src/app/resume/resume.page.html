@@ -1,0 +1,121 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="back()">
+        <ion-icon name="arrow-back" mode="ios" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Resume
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="resume_form" autocomplete="off">
+    <ion-item lines="none" class="input-container">
+      <ion-label position="floating" class="input-label">
+        First Name
+      </ion-label>
+      <ion-input type="text" formControlName="firstname" class="input-box"></ion-input>
+    </ion-item>
+
+    <ion-item no-padding lines="none" class="validator-error"
+      *ngIf="resume_form.controls.firstname.hasError('required') && resume_form.controls.firstname.touched">
+      <p class="content">Please Enter First Name!</p>
+    </ion-item>
+
+    <ion-item lines="none" class="input-container">
+      <ion-label position="floating" class="input-label">
+        Last Name
+      </ion-label>
+      <ion-input type="text" formControlName="lastname" class="input-box"></ion-input>
+    </ion-item>
+
+    <ion-item no-padding lines="none" class="validator-error"
+      *ngIf="resume_form.controls.lastname.hasError('required') && resume_form.controls.lastname.touched">
+      <p class="content">Please Enter Last Name!</p>
+    </ion-item>
+
+    <ion-item lines="none" class="input-container">
+      <ion-label position="floating" class="input-label">
+        Email
+      </ion-label>
+      <ion-input type="email" formControlName="email" class="input-box"></ion-input>
+    </ion-item>
+
+    <ion-item no-padding lines="none" class="validator-error"
+      *ngIf="resume_form.controls.email.hasError('required') && resume_form.controls.email.touched">
+      <p class="content">Email Address is required!</p>
+    </ion-item>
+    <ion-item no-padding lines="none" class="validator-error"
+      *ngIf="resume_form.controls.email.hasError('pattern') && resume_form.controls.email.touched">
+      <p class="content">Please Enter a Valid Email Address!</p>
+    </ion-item>
+    <ion-item no-padding lines="none" class="validator-error"
+      *ngIf="resume_form.controls.email.hasError('incorrect') && resume_form.controls.email.touched">
+      <p class="content">Email Address is already taken!</p>
+    </ion-item>
+
+    <ion-item lines="none" class="input-container">
+      <ion-label position="floating" class="input-label">
+        Mobile Number
+      </ion-label>
+      <ion-input type="number" formControlName="phonenumber" class="input-box"></ion-input>
+    </ion-item>
+
+    <ion-item no-padding lines="none" class="validator-error"
+      *ngIf="resume_form.controls.phonenumber.hasError('required') && resume_form.controls.phonenumber.touched">
+      <p class="content">Please Enter Mobile Number!</p>
+    </ion-item>
+
+    <ion-item lines="none" class="input-container">
+      <ion-label position="floating" class="input-label">
+        Education Qualification
+      </ion-label>
+      <ion-input type="text" formControlName="qualification" class="input-box"></ion-input>
+    </ion-item>
+
+    <ion-item no-padding lines="none" class="validator-error"
+      *ngIf="resume_form.controls.qualification.hasError('required') && resume_form.controls.qualification.touched">
+      <p class="content">Please Enter Education Qualification!</p>
+    </ion-item>
+    
+    <ion-item lines="none" class="input-container">
+      <ion-label position="floating" class="input-label">
+        Work Experience
+      </ion-label>
+      <ion-input type="text" formControlName="experience" class="input-box"></ion-input>
+    </ion-item>
+
+    <ion-item no-padding lines="none" class="validator-error"
+      *ngIf="resume_form.controls.experience.hasError('required') && resume_form.controls.experience.touched">
+      <p class="content">Please Enter Work Experience!</p>
+    </ion-item>    
+
+    <div class="format-div" *ngIf="uploadFile">
+      <img [src]="fileImage" class="format-img"/>
+      <ion-label class="format-label">{{fileName}}</ion-label>
+    </div>
+
+    <div class="upload-btn-wrapper">
+      <ion-button fill="clear" color="dark" expand="full" class="btn">Attach Resume</ion-button>
+      <input type="file" formControlName="myfile" (change)="fileUpload($event)" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
+    </div>
+    <ion-item no-padding lines="none" class="validator-error"
+      *ngIf="resume_form.controls.myfile.hasError('required') && resume_form.controls.myfile.touched">
+      <p class="content">Please Select Your resume!</p>
+    </ion-item>
+
+    </form>
+
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="full" size="large" color="dark" style="margin: 0px;" (click)="submit()">
+    SUBMIT
+  </ion-button>
+</ion-footer>
+
+

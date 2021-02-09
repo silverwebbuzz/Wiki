@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="back()">
+        <ion-icon name="arrow-back" mode="ios" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      User Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page_userprofile">
+
+  <ion-card class="card_header">
+    <ion-card-header>
+      <img *ngIf="!userDetails.cover_image" src="../../assets/img/no-img.png" class="img_cover" />
+      <img *ngIf="userDetails.cover_image" [src]="coverImgURL + userDetails.cover_image" class="img_cover" />
+      <img *ngIf="!userDetails.profile_image" src="../../assets/img/no-img.png" class="img_profile" />
+      <img *ngIf="userDetails.profile_image" [src]="profileImgURL + userDetails.profile_image" class="img_profile" />
+    </ion-card-header>
+
+    <ion-button fill="clear" class="btn_edit" routerLink="/editprofile"><ion-icon name="create" mode="md" color="dark"></ion-icon></ion-button>
+
+    <ion-card-content>
+      <div class="lbl_header">
+        <ion-label class="lbl_username">{{userDetails.firstname | uppercase}} {{userDetails.lastname | uppercase}}
+        </ion-label>
+        <ion-label class="lbl_mobileno">{{userDetails.mobileno}}</ion-label>
+        <ion-label class="lbl_skills">{{userDetails.skill}}</ion-label>
+        <ion-label class="lbl_address">{{userDetails.address | titlecase}}</ion-label>
+
+      </div>
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card class="card_about">
+    <ion-item lines="none" class="lbl_heading">
+      <ion-label>About</ion-label>
+    </ion-item>
+    <ion-label class="lbl_desc" *ngIf="userDetails.about">
+        {{userDetails.about}}
+    </ion-label>
+    <ion-label class="lbl_desc" *ngIf="!userDetails.about">
+        No Data Found.
+    </ion-label>
+  </ion-card>
+
+</ion-content>

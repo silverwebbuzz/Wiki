@@ -1,0 +1,35 @@
+.page_jobs{
+    --background: #f1f1f1;
+
+    .item_jobs{
+        --padding-start: 0px; 
+        margin: 5px;
+
+        .row_jobs{
+            .col_img{
+                .img_logo{
+                    height: 65px;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+            .col_lbl{
+                .lbl_title{
+                    font-size: 18px;
+                    font-weight: bold;
+                }
+                .lbl_company{
+                    font-size: 14px;
+                }
+                .lbl_address{
+                    font-size: 14px;
+                    color: #666;
+                }
+                .lbl_time{
+                    font-size: 14px;
+                    color: #666;
+                }
+            }
+        }
+    }
+}

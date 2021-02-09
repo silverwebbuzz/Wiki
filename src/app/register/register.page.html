@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="back()">
+        <ion-icon name="arrow-back" mode="ios" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Create an Account
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="main-page">
+
+  <div class="grey-background"></div>
+
+  <div class="container spc">
+
+  <ion-card class="box">
+
+  <form [formGroup]="registration_form" autocomplete="off">
+    <ion-item lines="none" class="input-container">
+        <ion-label>User Type</ion-label>
+        <ion-select formControlName="usertype" okText="Okay" cancelText="Dismiss">
+            <ion-select-option *ngFor="let ut of UserTypes; let i=index;" [value]="ut.id">{{ut.name | titlecase}}</ion-select-option>
+          </ion-select>
+    </ion-item>
+    <ion-item lines="none" class="input-container">
+      <ion-label position="floating" class="input-label">
+        First Name
+      </ion-label>
+      <ion-input type="text" formControlName="firstname" class="input-box"></ion-input>
+    </ion-item>
+
+    <ion-item no-padding lines="none" class="validator-error"
+      *ngIf="registration_form.controls.firstname.hasError('required') && registration_form.controls.firstname.touched">
+      <p class="content">Please Enter First Name!</p>
+    </ion-item>
+    <ion-item lines="none" class="input-container">
+      <ion-label position="floating" class="input-label">
+        Last Name
+      </ion-label>
+      <ion-input type="text" formControlName="lastname" class="input-box"></ion-input>
+    </ion-item>
+
+    <ion-item no-padding lines="none" class="validator-error"
+      *ngIf="registration_form.controls.lastname.hasError('required') && registration_form.controls.lastname.touched">
+      <p class="content">Please Enter Last Name!</p>
+    </ion-item>
+
+    <ion-item lines="none" class="input-container">
+      <ion-label position="floating" class="input-label">
+        Email
+      </ion-label>
+      <ion-input type="email" formControlName="email" class="input-box"></ion-input>
+    </ion-item>
+
+    <ion-item no-padding lines="none" class="validator-error"
+      *ngIf="registration_form.controls.email.hasError('required') && registration_form.controls.email.touched">
+      <p class="content">Email Address is required!</p>
+    </ion-item>
+    <ion-item no-padding lines="none" class="validator-error"
+      *ngIf="registration_form.controls.email.hasError('pattern') && registration_form.controls.email.touched">
+      <p class="content">Please Enter a Valid Email Address!</p>
+    </ion-item>
+    <ion-item no-padding lines="none" class="validator-error"
+      *ngIf="registration_form.controls.email.hasError('incorrect') && registration_form.controls.email.touched">
+      <p class="content">Email Address is already taken!</p>
+    </ion-item>
+
+    <ion-item lines="none" class="input-container">
+      <ion-label position="floating" class="input-label">
+        Username
+      </ion-label>
+      <ion-input type="text" formControlName="username" class="input-box"></ion-input>
+    </ion-item>
+
+    <ion-item no-padding lines="none" class="validator-error"
+      *ngIf="registration_form.controls.username.hasError('required') && registration_form.controls.username.touched">
+      <p class="content">Please Enter Userame!</p>
+    </ion-item>
+
+    <ion-item no-padding lines="none" class="validator-error"
+      *ngIf="registration_form.controls.username.hasError('incorrect') && registration_form.controls.username.touched">
+      <p class="content">Username is already taken!</p>
+    </ion-item>
+
+    <ion-item lines="none" class="input-container">
+      <ion-label position="floating" class="input-label">
+        Password
+      </ion-label>
+      <ion-input type="password" formControlName="password" class="input-box"></ion-input>
+    </ion-item>
+
+    <ion-item no-padding lines="none" class="validator-error"
+      *ngIf="registration_form.controls.password.hasError('required') && registration_form.controls.password.touched">
+      <p class="content">Please Enter a Password!</p>
+    </ion-item>
+    <ion-item no-padding lines="none" class="validator-error"
+      *ngIf="registration_form.controls.password.hasError('minlength') && registration_form.controls.password.touched">
+      <p class="content">The password needs at least 8 characters.</p>
+    </ion-item>
+    <ion-item no-padding lines="none" class="validator-error"
+      *ngIf="registration_form.controls.password.hasError('pattern') && registration_form.controls.password.touched">
+      <p class="content">Please Enter One Upper Case and One Lower Case, One Spacial Characters and One Number</p>
+    </ion-item>
+
+    <ion-item lines="none" class="input-container">
+      <ion-label position="floating" class="input-label">
+        Confirm Password
+      </ion-label>
+      <ion-input type="password" formControlName="confirmpassword" class="input-box"></ion-input>
+    </ion-item>
+
+    <ion-item no-padding lines="none" class="validator-error"
+      *ngIf="registration_form.controls.confirmpassword.hasError('required') && registration_form.controls.confirmpassword.touched">
+      <p class="content">Please Enter a Confirm Password!</p>
+    </ion-item>
+    <ion-item no-padding lines="none" class="validator-error"
+      *ngIf="registration_form.get('confirmpassword').errors && registration_form.get('confirmpassword').errors.confirmpassword">
+      <p class="content">Passwords must match!</p>
+    </ion-item>
+
+    <ion-button expand="full" size="large" color="dark" class="btn-login" (click)="submitRegister()">CREATE AN ACCOUNT</ion-button>
+    </form>
+
+    </ion-card>
+
+    <ion-button fill="clear" size="large" expand="full" class="btn-clear" routerLink="/login">Already have an account? &nbsp;
+      <ion-text color="dark" style="font-weight: bold;">SIGN IN</ion-text>
+    </ion-button>
+
+    </div>
+
+</ion-content>

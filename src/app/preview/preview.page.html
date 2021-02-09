@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="back()">
+        <ion-icon name="arrow-back" mode="ios" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Preview
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row>
+    <ion-col size="6" class="head">First Name :</ion-col>
+    <ion-col size="6">{{data.firstname | titlecase}}</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="6" class="head">Last Name :</ion-col>
+    <ion-col size="6">{{data.lastname | titlecase}}</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="6" class="head">Email :</ion-col>
+    <ion-col size="6">{{data.email}}</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="6" class="head">Mobile Number :</ion-col>
+    <ion-col size="6">{{data.mobileno}}</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="6" class="head">Education Qualification :</ion-col>
+    <ion-col size="6">{{data.qualification}}</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="6" class="head">Work Experience :</ion-col>
+    <ion-col size="6">{{data.work_experiance}}</ion-col>
+  </ion-row>
+
+  <div class="format-div" (click)="OpenDocuments()">
+      <img [src]="fileImage" class="format-img"/>
+      <ion-label class="format-label">Click to preview</ion-label>
+  </div>
+  
+
+</ion-content>

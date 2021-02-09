@@ -1,0 +1,122 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="back()">
+        <ion-icon name="arrow-back" mode="ios" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Edit Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <form [formGroup]="edit_form" autocomplete="off">
+        <ion-item lines="none" class="input-container">
+          <ion-label position="floating" class="input-label">
+            First Name
+          </ion-label>
+          <ion-input type="text" formControlName="firstname" class="input-box"></ion-input>
+        </ion-item>
+    
+        <ion-item no-padding lines="none" class="validator-error"
+          *ngIf="edit_form.controls.firstname.hasError('required') && edit_form.controls.firstname.touched">
+          <p class="content">Please Enter First Name!</p>
+        </ion-item>
+    
+        <ion-item lines="none" class="input-container">
+          <ion-label position="floating" class="input-label">
+            Last Name
+          </ion-label>
+          <ion-input type="text" formControlName="lastname" class="input-box"></ion-input>
+        </ion-item>
+    
+        <ion-item no-padding lines="none" class="validator-error"
+          *ngIf="edit_form.controls.lastname.hasError('required') && edit_form.controls.lastname.touched">
+          <p class="content">Please Enter Last Name!</p>
+        </ion-item>
+
+        <ion-item lines="none" class="input-container">
+            <ion-label position="floating" class="input-label">
+              Mobile Number
+            </ion-label>
+            <ion-input type="number" formControlName="phonenumber" class="input-box"></ion-input>
+          </ion-item>
+      
+          <ion-item no-padding lines="none" class="validator-error"
+            *ngIf="edit_form.controls.phonenumber.hasError('required') && edit_form.controls.phonenumber.touched">
+            <p class="content">Please Enter Mobile Number!</p>
+          </ion-item>
+    
+        <ion-item lines="none" class="input-container">
+          <ion-label position="floating" class="input-label">
+            Skills
+          </ion-label>
+          <ion-input type="text" formControlName="skills" class="input-box"></ion-input>
+        </ion-item>
+    
+        <ion-item no-padding lines="none" class="validator-error"
+          *ngIf="edit_form.controls.skills.hasError('required') && edit_form.controls.skills.touched">
+          <p class="content">Please Enter Skills!</p>
+        </ion-item>
+    
+        <ion-item lines="none" class="input-container">
+          <ion-label position="floating" class="input-label">
+            Address
+          </ion-label>
+          <ion-input type="text" formControlName="address" class="input-box"></ion-input>
+        </ion-item>
+    
+        <ion-item no-padding lines="none" class="validator-error"
+          *ngIf="edit_form.controls.address.hasError('required') && edit_form.controls.address.touched">
+          <p class="content">Please Enter Address!</p>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label>Subscribe Newsletter</ion-label>
+          <ion-toggle slot="end" color="medium" [checked]="newsletter == 1" (ionChange)="newsletterChange($event)"></ion-toggle>
+        </ion-item>
+    
+        <ion-item lines="none" class="input-container">
+          <ion-label position="floating" class="input-label">
+            About
+          </ion-label>
+          <ion-textarea rows="3" type="text" formControlName="about" class="input-box"></ion-textarea>
+        </ion-item>
+
+        <ion-item no-padding lines="none" class="validator-error"
+          *ngIf="edit_form.controls.about.hasError('required') && edit_form.controls.about.touched">
+          <p class="content">Please Enter Some Information!</p>
+        </ion-item>
+    
+        <div class="format-div" *ngIf="imgCoverURL">
+          <img [src]="imgCoverURL" class="format-img"/>
+          <ion-label class="format-label">Cover Picture</ion-label>
+        </div>
+    
+        <div class="upload-btn-wrapper">
+          <ion-button fill="clear" color="dark" expand="full" class="btn">Browse Cover Picture</ion-button>
+          <input type="file" formControlName="coverpic" (change)="fileCoverUpload($event)" accept="image/*"/>
+        </div>
+
+        <div class="format-div" *ngIf="imgProfileURL">
+            <img [src]="imgProfileURL" class="format-img"/>
+            <ion-label class="format-label">Profile Picture</ion-label>
+          </div>
+      
+          <div class="upload-btn-wrapper">
+            <ion-button fill="clear" color="dark" expand="full" class="btn">Browse Profile Picture</ion-button>
+            <input type="file" formControlName="profilepic" (change)="fileProfileUpload($event)" accept="image/*"/>
+          </div>
+    
+        </form>
+    
+    </ion-content>
+    
+    <ion-footer>
+      <ion-button expand="full" size="large" color="dark" style="margin: 0px;" (click)="submit()">
+        SUBMIT
+      </ion-button>
+    </ion-footer>

@@ -1,0 +1,53 @@
+.input-container{
+    --padding-start: 8px;
+
+    .input-label{
+        padding-left: 8px;
+    }
+
+    .input-box{
+        border: 1px solid #000;
+        --padding-start: 8px;
+    }
+}
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 25px 8px 0px 8px;
+}
+.format-div{
+    border: 1px dotted #383a3e; 
+    margin: 16px 8px 0px 8px;
+    background: #f1f1f1;
+
+    .format-img{
+        height: 250px; 
+        width: 250px; 
+        display: block; 
+        padding: 10px; 
+        margin: auto;
+        object-fit: cover;
+    }
+
+    .format-label{
+        display: block; 
+        text-align: center; 
+        padding: 8px;
+    }
+}
+
+.btn {
+    border: 2px solid #383a3e;
+    font-weight: bold;
+    margin: 8px 0px 24px 0px;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size: 38px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+

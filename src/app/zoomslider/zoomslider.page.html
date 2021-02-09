@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="back()">
+        <ion-icon name="close" mode="md" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title text-center>
+        {{current_slider_index}}/{{allImgs.length}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-slides *ngIf="allImgs" pager="true" loop="true" #Slides_banner (ionSlideDidChange)="SlideDidChange()" [options]="sliderOptions">
+      <ion-slide *ngFor="let img of allImgs">
+        <img [src]="ImgURL + img" class="slide_pic">
+      </ion-slide>
+    </ion-slides>
+
+</ion-content>
